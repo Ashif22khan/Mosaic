@@ -25,7 +25,7 @@ class Mosaic:NSObject{
     class func generateMosaik(fromImages:Array<UIImage>,forImage:UIImage)->UIImage {
         
         ///Double the size of original image....
-        let forImageDouble:UIImage=Mosaic.scaleImage(forImage, toSize: CGSizeMake(forImage.size.width * 2.0, forImage.size.width * 2.0))
+        let forImageDouble:UIImage=Mosaic.scaleImage(forImage, toSize: CGSizeMake(forImage.size.width * 4.0, forImage.size.width * 4.0))
         
         ///count the rows and columns to be generated based upon the tileSize
         let rows:Int = Int(forImageDouble.size.width / CGFloat(tileSize))
