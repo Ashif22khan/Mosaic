@@ -8,7 +8,7 @@ import UIKit
 
 class Mosaic:NSObject{
     static var tileSize:Int=20
-    
+    //static var scaleSize:CGFloat=1.0
     ////Resize image
     class func scaleImage(image: UIImage, toSize newSize: CGSize) -> (UIImage) {
         let newRect = CGRectIntegral(CGRectMake(0,0, newSize.width, newSize.height))
@@ -22,21 +22,21 @@ class Mosaic:NSObject{
         UIGraphicsEndImageContext()
         return newImage
     }
-    class func generateMosaik(fromImages:Array<UIImage>,forImage:UIImage)->UIImage {
+    class func generateMosaik(fromImages:Array<UIImage>,forImage:UIImage,forScaleSize:CGFloat)->UIImage {
         
         ///Double the size of original image....
-        let forImageDouble:UIImage=Mosaic.scaleImage(forImage, toSize: CGSizeMake(forImage.size.width * 4.0, forImage.size.width * 4.0))
+        let forImageWithScale:UIImage=Mosaic.scaleImage(forImage, toSize: CGSizeMake(forImage.size.width * forScaleSize, forImage.size.width * forScaleSize))
         
         ///count the rows and columns to be generated based upon the tileSize
-        let rows:Int = Int(forImageDouble.size.width / CGFloat(tileSize))
-        let cols:Int = Int(forImageDouble.size.height / CGFloat(tileSize))
+        let rows:Int = Int(forImageWithScale.size.width / CGFloat(tileSize))
+        let cols:Int = Int(forImageWithScale.size.height / CGFloat(tileSize))
         
         ////cache for the tiles generated earlier
         var tiles=Dictionary<Int,UIImage>()
         
         ///begin a new image context for our drwaing purposes
         ///this new image context acts as a canvas for drawing
-        UIGraphicsBeginImageContext(forImageDouble.size)
+        UIGraphicsBeginImageContext(forImageWithScale.size)
         for (var i=0;i<rows;i++){
             for(var j=0;j<cols;j++){
                 ///get a random number from 0 to number of supporting images available
@@ -54,7 +54,7 @@ class Mosaic:NSObject{
         /// Tiles drawing is done, now clear the dictionary
         tiles.removeAll()
         /// Draw the overlay image in the context with opacity less then 1.0 to get the Mosaik effect
-        forImageDouble.drawInRect(CGRect(origin: CGPointZero, size: forImageDouble.size),blendMode:.Normal, alpha:0.6)
+        forImageWithScale.drawInRect(CGRect(origin: CGPointZero, size: forImageWithScale.size),blendMode:.Normal, alpha:0.6)
         /// store the result of context, this is our final output
         let finalImage:UIImage  = UIGraphicsGetImageFromCurrentImageContext();
         
