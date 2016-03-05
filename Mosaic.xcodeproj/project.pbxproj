@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F24076C1C857EE000AB4138 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F24076B1C857EDF00AB4138 /* Photos.framework */; };
 		3F702E4E1C6B957200EDBAD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F702E4D1C6B957200EDBAD6 /* AppDelegate.swift */; };
 		3F702E501C6B957200EDBAD6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F702E4F1C6B957200EDBAD6 /* ViewController.swift */; };
 		3F702E531C6B957200EDBAD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F702E511C6B957200EDBAD6 /* Main.storyboard */; };
@@ -139,6 +140,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F24076B1C857EDF00AB4138 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		3F702E4A1C6B957200EDBAD6 /* Mosaic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mosaic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F702E4D1C6B957200EDBAD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F702E4F1C6B957200EDBAD6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F24076C1C857EE000AB4138 /* Photos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +305,7 @@
 		3F702E4C1C6B957200EDBAD6 /* Mosaic */ = {
 			isa = PBXGroup;
 			children = (
+				3F8234591C8AF6E300F35881 /* Frameworks */,
 				3F702E611C6B960100EDBAD6 /* images */,
 				3F702E4D1C6B957200EDBAD6 /* AppDelegate.swift */,
 				3F702E4F1C6B957200EDBAD6 /* ViewController.swift */,
@@ -444,6 +448,14 @@
 			path = images;
 			sourceTree = "<group>";
 		};
+		3F8234591C8AF6E300F35881 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F24076B1C857EDF00AB4138 /* Photos.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -476,6 +488,7 @@
 				TargetAttributes = {
 					3F702E491C6B957200EDBAD6 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = U3ZZ7482PK;
 					};
 				};
 			};
@@ -683,6 +696,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -728,6 +742,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -753,10 +768,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Mosaic/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pixel.mavericks.Mosaic;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pixelmavericks.qasr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -764,10 +784,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Mosaic/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.pixel.mavericks.Mosaic;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pixelmavericks.qasr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -790,6 +815,7 @@
 				3F702E5E1C6B957200EDBAD6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

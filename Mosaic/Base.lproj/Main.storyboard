@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,11 +17,74 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" maximumZoomScale="12" translatesAutoresizingMaskIntoConstraints="NO" id="oif-qR-qrM">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Te-Cc-boB">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="7Te-Cc-boB" firstAttribute="top" secondItem="oif-qR-qrM" secondAttribute="top" id="0Ew-H3-yTL"/>
+                                    <constraint firstItem="7Te-Cc-boB" firstAttribute="leading" secondItem="oif-qR-qrM" secondAttribute="leading" id="GUJ-Ys-14t"/>
+                                    <constraint firstAttribute="bottom" secondItem="7Te-Cc-boB" secondAttribute="bottom" id="Hjk-k2-6Wc"/>
+                                    <constraint firstAttribute="trailing" secondItem="7Te-Cc-boB" secondAttribute="trailing" id="rcu-4Q-wb2"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="hmQ-oU-JfM"/>
+                                </connections>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V6e-Dr-KUp">
+                                <rect key="frame" x="500" y="490" width="80" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="Rco-BM-cml"/>
+                                    <constraint firstAttribute="height" constant="30" id="b8t-zQ-s8J"/>
+                                </constraints>
+                                <state key="normal" title="Capture"/>
+                                <connections>
+                                    <action selector="capture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Okt-df-HA8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XP5-o6-BZC">
+                                <rect key="frame" x="500" y="540" width="80" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="76g-wB-80g"/>
+                                    <constraint firstAttribute="height" constant="30" id="Hmf-Xr-0VT"/>
+                                </constraints>
+                                <state key="normal" title="Mosaic"/>
+                                <connections>
+                                    <action selector="generatePattern:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rod-K9-TBY"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7Te-Cc-boB" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="3NM-s9-LhB"/>
+                            <constraint firstItem="oif-qR-qrM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="6yF-Ux-R0l"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XP5-o6-BZC" secondAttribute="bottom" constant="30" id="Ila-Tz-2Sz"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oif-qR-qrM" secondAttribute="bottom" id="P5o-7O-OTp"/>
+                            <constraint firstItem="7Te-Cc-boB" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="PZI-EE-ZGW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oif-qR-qrM" secondAttribute="trailing" constant="-20" id="R0N-Sf-6PE"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="V6e-Dr-KUp" secondAttribute="bottom" constant="80" id="RHy-H8-u90"/>
+                            <constraint firstItem="XP5-o6-BZC" firstAttribute="top" secondItem="V6e-Dr-KUp" secondAttribute="bottom" constant="20" id="WNQ-3q-5hW"/>
+                            <constraint firstItem="V6e-Dr-KUp" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="cV7-QL-chR"/>
+                            <constraint firstItem="oif-qR-qrM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="gWH-X2-Nie"/>
+                            <constraint firstItem="XP5-o6-BZC" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="ymf-cH-vth"/>
+                        </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="btnCapture" destination="V6e-Dr-KUp" id="unv-IF-NX5"/>
+                        <outlet property="btnMosaic" destination="XP5-o6-BZC" id="cOy-l1-ZbD"/>
+                        <outlet property="imageView" destination="7Te-Cc-boB" id="dmk-01-u5M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="435" y="271"/>
         </scene>
     </scenes>
 </document>
